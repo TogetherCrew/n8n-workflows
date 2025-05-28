@@ -1,4 +1,4 @@
-# n8n Workflows with Qdrant
+# n8n-workflows
 
 This project provides a complete Docker Compose setup for running n8n (workflow automation) and Qdrant (vector database) together in a development environment.
 
