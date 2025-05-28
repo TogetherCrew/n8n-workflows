@@ -1,4 +1,4 @@
-.PHONY: help start stop restart logs clean setup health status
+.PHONY: help start stop restart logs clean setup health status test
 
 # Default target
 help:
@@ -10,6 +10,7 @@ help:
 	@echo "  logs      - Show logs for all services"
 	@echo "  health    - Check health status of all services"
 	@echo "  status    - Show status of all services"
+	@echo "  test      - Run test suite"
 	@echo "  clean     - Stop services and remove volumes (destructive)"
 	@echo ""
 	@echo "Service-specific commands:"
@@ -50,6 +51,10 @@ health:
 # Show service status
 status:
 	docker-compose -f docker-compose.dev.yml ps
+
+# Run test suite
+test:
+	docker-compose -f docker-compose.test.yml up --exit-code-from app
 
 # Clean up (destructive - removes volumes)
 clean:
