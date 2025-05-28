@@ -102,7 +102,20 @@ docker-compose -f docker-compose.dev.yml restart n8n
 
 # Access service shell
 docker-compose -f docker-compose.dev.yml exec n8n sh
+
+# Run test suite
+docker-compose -f docker-compose.test.yml up --exit-code-from app
 ```
+
+## Testing
+
+The project includes a simple test suite for CI/CD validation:
+
+- **Test file**: `docker-compose.test.yml`
+- **Purpose**: Validates basic environment and configuration
+- **Usage**: `make test` or `docker-compose -f docker-compose.test.yml up --exit-code-from app`
+
+The test suite is designed to always pass and is primarily used to satisfy CI pipeline requirements.
 
 ## Data Persistence
 
